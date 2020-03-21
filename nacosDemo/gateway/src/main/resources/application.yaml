@@ -1,0 +1,29 @@
+server:
+  port: 7000
+spring:
+  application:
+    name: api-gateway
+  zipkin:
+    base-url: http://127.0.0.1:9411/ #zipkin server的请求地址
+    discoveryClientEnabled: false #让nacos把它当成一个URL， 而不要当做服务名
+  sleuth:
+    sampler:
+      probability: 1.0 #采样的百分比 1.0 = 100%
+  cloud:
+    nacos:
+      discovery:
+        # 注册中心
+        server-addr: 127.0.0.1:8848
+    gateway:
+      discovery:
+        locator:
+          enabled: true # 让gateway可以发现nacos中的微服务
+#      routes:
+#        # - 表示数组
+#        - id: nacos-producer
+#          uri: lb://nacos-producer # lb 指的是负载均衡 后面跟的是 具体微服务的标识
+#          order: 1 # 路由的优先级,数字越小级别越高
+#          predicates: # 断言(就是路由转发要满足的条件)
+#           - Path=/nacos-producer/** # 当请求路径满足Path指定的规则时,才进行路由转发
+#          filters: # 过滤器,请求在传递过程中可以通过过滤器对其进行一定的修改
+#            - StripPrefix=1 # 转发之前去掉1层路径

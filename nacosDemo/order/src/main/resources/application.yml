@@ -1,0 +1,35 @@
+
+server:
+  port: 20203
+spring:
+  application:
+    name: seata-order
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+      config:
+        namespace: public
+        group: SEATA_GROUP
+    alibaba:
+      seata:
+        tx-service-group: ${spring.application.name}
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/seata_demo?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+  jpa:
+    database: mysql
+    #配置自动建表：updata:没有表新建，有表更新操作,控制台显示建表语句
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
