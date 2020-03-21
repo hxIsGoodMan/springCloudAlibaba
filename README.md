@@ -1,3 +1,5 @@
+# springCloudAlibaba
+
 springCloudAlibaba  example
 
 ---
@@ -12,12 +14,20 @@ springCloudAlibaba  example
 
 
 
-简单的 Nacos 入门案例： 👇
+Nacos 注册中心\配置中心： 👇
 
 - producer 
 - consumer 
 
-Seata 分布式事务 案例：👇
+Gateway 网关：👇
+
+- gateway
+
+Seata 分布式事务 ：👇
 
 - order
 - store
+
+
+
+🎉🎉🎉🎉🎉🎉个人网站：https://www.hman.fun/ 🎉🎉🎉🎉🎉🎉
